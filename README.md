@@ -1,10 +1,8 @@
 # BuildJSPXHLibraries
 
 ## Functions
-
+### jshBorder(selector);
 ```javascript
-jshBorder(selector);
-
 // EX 1: border-width, border-style, border-color
 jshBorder("h1").Width("1px").Dotted().Color("red green blue yellow");
 ```
