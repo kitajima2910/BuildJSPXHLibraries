@@ -1,4 +1,4 @@
-// Init
+// Init variables
 const init = {
   important: "!important",
 
@@ -8,11 +8,16 @@ const init = {
   borderWidth: "1px",
   borderStyle: "solid",
   borderColor: "#000",
+
+  borderLeftWidth: "1px",
+  borderLeftStyle: "solid",
+  borderLeftColor: "#000",
+
+  borderNone: "none",
 };
 
-
 // Start 20220-06-18: Main: CSS Borders
-const jshBorder = (selector = "") => {
+const jshBorder = (selector = "", direction = "") => {
   // Element Global
   const element = document.querySelector(selector);
   element.style.borderWidth = init.borderWidth;
@@ -40,12 +45,29 @@ const jshBorder = (selector = "") => {
   return self;
 };
 
+// Support border-top, border-right, border-bottom, border-left
+const borderDirection = (params) => {
+  const { element, direction } = params;
+
+  element.style.border = init.borderNone;
+
+  if (direction.toLowerCase() === "left") {
+    element.style.borderLeftWidth = init.borderLeftWidth;
+    element.style.borderLeftStyle = init.borderLeftStyle;
+    element.style.borderLeftColor = init.borderLeftColor;
+  }
+};
+
 // Support border-style
 const borderStyle = (element) => {
   // Call func supports
   const border_color = borderColor(element);
 
   const self = {
+    Style: (topRightBottomLeft) => {
+      element.style.borderStyle = topRightBottomLeft;
+      return border_color;
+    },
     Dotted: () => {
       element.style.borderStyle = "dotted";
       return border_color;
