@@ -1,1 +1,1 @@
-jshBorder("h1").Width("20px").Dotted().Color("red green blue yellow")
+jshBorder("h1").Width("5px").Dotted().Color("red green blue yellow")
