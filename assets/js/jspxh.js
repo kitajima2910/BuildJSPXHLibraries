@@ -20,25 +20,43 @@ const init = {
 const jshBorder = (selector = "", direction = "") => {
   // Element Global
   const element = document.querySelector(selector);
-  element.style.borderWidth = init.borderWidth;
-  element.style.borderStyle = init.borderStyle;
-  element.style.borderColor = init.borderColor;
 
-  // Call func supports
-  const border_style = borderStyle(element);
+  // Call border core
+  borderCore(element, direction);
 
   const self = {
     Width: (numberWidth = "1px") => {
-      element.style.borderWidth = numberWidth;
-      return border_style;
+      borderCore(
+        element,
+        {
+          key: "Width",
+          numberWidth: numberWidth,
+          border_style: borderStyle(element, direction),
+        },
+        direction
+      );
     },
     Medium: () => {
-      element.style.borderWidth = "medium";
-      return border_style;
+      borderCore(
+        element,
+        {
+          key: "Medium",
+          width: "medium",
+          border_style: borderStyle(element, direction),
+        },
+        direction
+      );
     },
     Thick: () => {
-      element.style.borderWidth = "thick";
-      return border_style;
+      borderCore(
+        element,
+        {
+          key: "Thick",
+          width: "thick",
+          border_style: borderStyle(element, direction),
+        },
+        direction
+      );
     },
   };
 
@@ -59,7 +77,7 @@ const borderDirection = (params) => {
 };
 
 // Support border-style
-const borderStyle = (element) => {
+const borderStyle = (element, direction) => {
   // Call func supports
   const border_color = borderColor(element);
 
@@ -120,5 +138,42 @@ const borderColor = (element) => {
     },
   };
   return self;
+};
+
+// Support border core
+const borderCore = (element, params, direction = "") => {
+  switch (direction.toLowerCase()) {
+    case "top":
+      break;
+    case "right":
+      break;
+    case "left":
+      break;
+    case "bottom":
+      break;
+    case "":
+      // Default
+      element.style.borderWidth = init.borderWidth;
+      element.style.borderStyle = init.borderStyle;
+      element.style.borderColor = init.borderColor;
+
+      // border-width
+      if (params.key === "Width") {
+        const { numberWidth, border_style } = params;
+        element.style.borderWidth = numberWidth;
+        return border_style;
+      }
+      if (params.key === "Medium") {
+        const { width, border_style } = params;
+        element.style.borderWidth = width;
+        return border_style;
+      }
+      if (params.key === "Thick") {
+        const { width, border_style } = params;
+        element.style.borderWidth = width;
+        return border_style;
+      }
+      break;
+  }
 };
 // End 20220-06-18: Main: CSS Borders
