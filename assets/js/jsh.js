@@ -1,6 +1,4 @@
-// Start: Init variables
-// Start: Init variables
-// Start: Init variables
+//#region Main: Init variables
 const init = {
   important: "!important",
 
@@ -31,25 +29,15 @@ const init = {
   borderNone: "none",
   // End: CSS Borders
 };
-// End: Init variables
-// End: Init variables
-// End: Init variables
+//#endregion Main: Init variables
 
-// Start: Global funcs
-// Start: Global funcs
-// Start: Global funcs
-
-// document.querySelector(selector)
+//#region Main: Global funcs
 const querySelector = (selector) => {
   return document.querySelector(selector);
 };
-// End: Global funcs
-// End: Global funcs
-// End: Global funcs
+//#endregion Main: Global funcs
 
-// Start 2022-06-19: Main: CSS Colors
-// Start 2022-06-19: Main: CSS Colors
-// Start 2022-06-19: Main: CSS Colors
+//#region 2022-06-19: Main: CSS Colors
 const jshColor = (selector = "", color = init.textColor) => {
   // Element Global
   const element = querySelector(selector);
@@ -63,11 +51,9 @@ const jshColor = (selector = "", color = init.textColor) => {
 
   return self;
 };
-// End 2022-06-19: Main: CSS Colors
-// End 2022-06-19: Main: CSS Colors
-// End 2022-06-19: Main: CSS Colors
+//#endregion 2022-06-19: Main: CSS Colors
 
-// Start 2022-06-19: Main: CSS Backgrounds
+//#region 2022-06-19: Main: CSS Backgrounds
 const jshBackground = (selector = "", color = init.textColor) => {
   // Element Global
   const element = querySelector(selector);
@@ -77,13 +63,9 @@ const jshBackground = (selector = "", color = init.textColor) => {
 
   return self;
 };
-// End 2022-06-19: Main: CSS Backgrounds
-// End 2022-06-19: Main: CSS Backgrounds
-// End 2022-06-19: Main: CSS Backgrounds
+//#endregion 2022-06-19: Main: CSS Backgrounds
 
-// Start 2022-06-18: Main: CSS Borders
-// Start 2022-06-18: Main: CSS Borders
-// Start 2022-06-18: Main: CSS Borders
+//#region 2022-06-18: Main: CSS Borders
 const jshBorder = (selector = "", direction = "") => {
   // Element Global
   const element = querySelector(selector);
@@ -339,6 +321,4 @@ const borderWidthCore = (element, params, direction = "") => {
       break;
   }
 };
-// End 2022-06-18: Main: CSS Borders
-// End 2022-06-18: Main: CSS Borders
-// End 2022-06-18: Main: CSS Borders
+//#endregion 2022-06-18: Main: CSS Borders

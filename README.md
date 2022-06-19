@@ -1,8 +1,17 @@
 # BuildJSPXHLibraries
 
+## Installation
+
+```bash
+Download files: jsh.js, cssh.css
+```
+
 ## Functions
 
-##### jshColor(selector);
+- jshColor(selector)
+- jshBorder(selector)
+
+##### jshColor(selector)
 
 ```javascript
 // EX 1: colors, colors + backgroundColor
@@ -15,7 +24,7 @@ jshColor(".h1-4", "hsl(0, 40%, 50%)").backgroundColor("rgba(255, 99, 71, 0.5)");
 
 ![jshColorEX1](./assets/imgs/colors/jshColorEX1.PNG)
 
-##### jshBorder(selector);
+##### jshBorder(selector)
 
 ```javascript
 // EX 1: border-width, border-style, border-color

@@ -8,10 +8,10 @@ jshColor(".h1-4", "hsl(0, 40%, 50%)").backgroundColor("rgba(255, 99, 71, 0.5)");
 
 // jshBorder(selector);
 // EX 3: border-top, border-right, border-bottom, border-left
-// jshBorder("h1", "top").Width("1px").Dotted().Color("red");
-// jshBorder("h1", "right").Width("2px").Groove().Color("green");
-// jshBorder("h1", "left").Width("3px").Ridge().Color("blue");
-// jshBorder("h1", "bottom").Width("4px").Inset().Color("yellow");
+jshBorder("h1", "top").Width("1px").Dotted().Color("red");
+jshBorder("h1", "right").Width("2px").Groove().Color("green");
+jshBorder("h1", "left").Width("3px").Ridge().Color("blue");
+jshBorder("h1", "bottom").Width("4px").Inset().Color("yellow");
 
 // EX 2: border-style customize
 // jshBorder("h1")
