@@ -4,176 +4,289 @@ const init = {
 
   backgroundColor: "initial",
 
-  // CSS Borders
+  // Start: CSS Borders
   borderWidth: "1px",
   borderStyle: "solid",
   borderColor: "#000",
+
+  borderTopWidth: "1px",
+  borderTopStyle: "solid",
+  borderTopColor: "#000",
+
+  borderRightWidth: "1px",
+  borderRightStyle: "solid",
+  borderRightColor: "#000",
 
   borderLeftWidth: "1px",
   borderLeftStyle: "solid",
   borderLeftColor: "#000",
 
+  borderBottomWidth: "1px",
+  borderBottomStyle: "solid",
+  borderBottomColor: "#000",
+
   borderNone: "none",
+  // End: CSS Borders
 };
 
+// Start 20220-06-18: Main: CSS Borders
+// Start 20220-06-18: Main: CSS Borders
 // Start 20220-06-18: Main: CSS Borders
 const jshBorder = (selector = "", direction = "") => {
   // Element Global
   const element = document.querySelector(selector);
 
-  // Call border core
-  borderCore(element, direction);
+  // Call border default core
+  borderDefaultCore(element, direction);
 
   const self = {
     Width: (numberWidth = "1px") => {
-      borderCore(
+      borderWidthCore(
         element,
         {
           key: "Width",
           numberWidth: numberWidth,
-          border_style: borderStyle(element, direction),
         },
         direction
       );
+      return borderStyle(element, direction);
     },
     Medium: () => {
-      borderCore(
+      borderWidthCore(
         element,
         {
           key: "Medium",
           width: "medium",
-          border_style: borderStyle(element, direction),
         },
         direction
       );
+      return borderStyle(element, direction);
     },
     Thick: () => {
-      borderCore(
+      borderWidthCore(
         element,
         {
           key: "Thick",
           width: "thick",
-          border_style: borderStyle(element, direction),
         },
         direction
       );
+      return borderStyle(element, direction);
     },
   };
 
   return self;
 };
 
-// Support border-top, border-right, border-bottom, border-left
-const borderDirection = (params) => {
-  const { element, direction } = params;
-
-  element.style.border = init.borderNone;
-
-  if (direction.toLowerCase() === "left") {
-    element.style.borderLeftWidth = init.borderLeftWidth;
-    element.style.borderLeftStyle = init.borderLeftStyle;
-    element.style.borderLeftColor = init.borderLeftColor;
+// Support border default core
+const borderDefaultCore = (element, direction) => {
+  switch (direction.toLowerCase()) {
+    case "top":
+      element.style.borderTopWidth = init.borderTopWidth;
+      element.style.borderTopStyle = init.borderTopStyle;
+      element.style.borderTopColor = init.borderTopColor;
+      break;
+    case "right":
+      element.style.borderRightWidth = init.borderTopWidth;
+      element.style.borderRightStyle = init.borderTopStyle;
+      element.style.borderRightColor = init.borderTopColor;
+      break;
+    case "left":
+      element.style.borderLeftWidth = init.borderTopWidth;
+      element.style.borderLeftStyle = init.borderTopStyle;
+      element.style.borderLeftColor = init.borderTopColor;
+      break;
+    case "bottom":
+      element.style.borderBottomWidth = init.borderTopWidth;
+      element.style.borderBottomStyle = init.borderTopStyle;
+      element.style.borderBottomColor = init.borderTopColor;
+      break;
+    case "":
+      element.style.borderWidth = init.borderWidth;
+      element.style.borderStyle = init.borderStyle;
+      element.style.borderColor = init.borderColor;
+      break;
   }
 };
 
 // Support border-style
 const borderStyle = (element, direction) => {
-  // Call func supports
-  const border_color = borderColor(element);
-
   const self = {
     Style: (topRightBottomLeft) => {
-      element.style.borderStyle = topRightBottomLeft;
-      return border_color;
+      borderDirectionsCore(element, direction, topRightBottomLeft);
+      return borderColor(element, direction);
     },
     Dotted: () => {
-      element.style.borderStyle = "dotted";
-      return border_color;
+      borderDirectionsCore(element, direction, "dotted");
+      return borderColor(element, direction);
     },
     Dashed: () => {
-      element.style.borderStyle = "dashed";
-      return border_color;
+      borderDirectionsCore(element, direction, "dashed");
+      return borderColor(element, direction);
     },
     Solid: () => {
-      element.style.borderStyle = "solid";
-      return border_color;
+      borderDirectionsCore(element, direction, "solid");
+      return borderColor(element, direction);
     },
     Double: () => {
-      element.style.borderStyle = "double";
-      return border_color;
+      borderDirectionsCore(element, direction, "double");
+      return borderColor(element, direction);
     },
     Groove: () => {
-      element.style.borderStyle = "groove";
-      return border_color;
+      borderDirectionsCore(element, direction, "groove");
+      return borderColor(element, direction);
     },
     Ridge: () => {
-      element.style.borderStyle = "ridge";
-      return border_color;
+      borderDirectionsCore(element, direction, "ridge");
+      return borderColor(element, direction);
     },
     Inset: () => {
-      element.style.borderStyle = "inset";
-      return border_color;
+      borderDirectionsCore(element, direction, "inset");
+      return borderColor(element, direction);
     },
     Outset: () => {
-      element.style.borderStyle = "outset";
-      return border_color;
+      borderDirectionsCore(element, direction, "outset");
+      return borderColor(element, direction);
     },
     None: () => {
-      element.style.borderStyle = "none";
-      return border_color;
+      borderDirectionsCore(element, direction, "none");
+      return borderColor(element, direction);
     },
     Hidden: () => {
-      element.style.borderStyle = "hidden";
-      return border_color;
+      borderDirectionsCore(element, direction, "hidden");
+      return borderColor(element, direction);
     },
   };
   return self;
+};
+
+// Support directions core
+const borderDirectionsCore = (element, direction, style) => {
+  switch (direction.toLowerCase()) {
+    case "top":
+      element.style.borderTopStyle = style;
+      break;
+    case "right":
+      element.style.borderRightStyle = style;
+      break;
+    case "left":
+      element.style.borderLeftStyle = style;
+      break;
+    case "bottom":
+      element.style.borderBottomStyle = style;
+      break;
+    case "":
+      element.style.borderStyle = style;
+      break;
+  }
 };
 
 // Support border-color
-const borderColor = (element) => {
+const borderColor = (element, direction) => {
   const self = {
     Color: (color = init.borderColor) => {
-      element.style.borderColor = color;
+      borderColorCore(element, direction, color);
     },
   };
   return self;
 };
 
-// Support border core
-const borderCore = (element, params, direction = "") => {
+// Support border-color core
+const borderColorCore = (element, direction, color) => {
   switch (direction.toLowerCase()) {
     case "top":
+      element.style.borderTopColor = color;
       break;
     case "right":
+      element.style.borderRightColor = color;
       break;
     case "left":
+      element.style.borderLeftColor = color;
       break;
     case "bottom":
+      element.style.borderBottomColor = color;
       break;
     case "":
-      // Default
-      element.style.borderWidth = init.borderWidth;
-      element.style.borderStyle = init.borderStyle;
-      element.style.borderColor = init.borderColor;
+      element.style.borderColor = color;
+      break;
+  }
+};
 
-      // border-width
+// Support border-width core
+const borderWidthCore = (element, params, direction = "") => {
+  switch (direction.toLowerCase()) {
+    case "top":
       if (params.key === "Width") {
-        const { numberWidth, border_style } = params;
-        element.style.borderWidth = numberWidth;
-        return border_style;
+        const { numberWidth } = params;
+        element.style.borderTopWidth = numberWidth;
       }
       if (params.key === "Medium") {
-        const { width, border_style } = params;
-        element.style.borderWidth = width;
-        return border_style;
+        const { width } = params;
+        element.style.borderTopWidth = width;
       }
       if (params.key === "Thick") {
-        const { width, border_style } = params;
+        const { width } = params;
+        element.style.borderTopWidth = width;
+      }
+      break;
+    case "right":
+      if (params.key === "Width") {
+        const { numberWidth } = params;
+        element.style.borderRightWidth = numberWidth;
+      }
+      if (params.key === "Medium") {
+        const { width } = params;
+        element.style.borderRightWidth = width;
+      }
+      if (params.key === "Thick") {
+        const { width } = params;
+        element.style.borderRightWidth = width;
+      }
+      break;
+    case "left":
+      if (params.key === "Width") {
+        const { numberWidth } = params;
+        element.style.borderLeftWidth = numberWidth;
+      }
+      if (params.key === "Medium") {
+        const { width } = params;
+        element.style.borderLeftWidth = width;
+      }
+      if (params.key === "Thick") {
+        const { width } = params;
+        element.style.borderLeftWidth = width;
+      }
+      break;
+    case "bottom":
+      if (params.key === "Width") {
+        const { numberWidth } = params;
+        element.style.borderBottomWidth = numberWidth;
+      }
+      if (params.key === "Medium") {
+        const { width } = params;
+        element.style.borderBottomWidth = width;
+      }
+      if (params.key === "Thick") {
+        const { width } = params;
+        element.style.borderBottomWidth = width;
+      }
+      break;
+    case "":
+      if (params.key === "Width") {
+        const { numberWidth } = params;
+        element.style.borderWidth = numberWidth;
+      }
+      if (params.key === "Medium") {
+        const { width } = params;
         element.style.borderWidth = width;
-        return border_style;
+      }
+      if (params.key === "Thick") {
+        const { width } = params;
+        element.style.borderWidth = width;
       }
       break;
   }
 };
+// End 20220-06-18: Main: CSS Borders
+// End 20220-06-18: Main: CSS Borders
 // End 20220-06-18: Main: CSS Borders
