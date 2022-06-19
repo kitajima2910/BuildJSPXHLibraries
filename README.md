@@ -8,8 +8,8 @@ Download files: jsh.js, cssh.css
 
 ## Functions
 
-- jshColor(selector)
-- jshBorder(selector)
+1. jshColor(selector)
+2. jshBorder(selector)
 
 ##### jshColor(selector)
 
