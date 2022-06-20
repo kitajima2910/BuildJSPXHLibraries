@@ -4,6 +4,10 @@ const init = {
 
   textColor: "initial",
   backgroundColor: "initial",
+  blank: "",
+  opacity: 1,
+  urlImage: "",
+  transparent: "transparent",
 
   // Start: CSS Borders
   borderWidth: "1px",
@@ -38,13 +42,13 @@ const querySelector = (selector) => {
 //#endregion Main: Global funcs
 
 //#region 2022-06-19: Main: CSS Colors
-const jshColor = (selector = "", color = init.textColor) => {
+const jshColor = (selector = init.blank, color = init.textColor) => {
   // Element Global
   const element = querySelector(selector);
   element.style.color = color;
 
   const self = {
-    backgroundColor: (color = init.backgroundColor) => {
+    BackgroundColor: (color = init.backgroundColor) => {
       element.style.backgroundColor = color;
     },
   };
@@ -54,19 +58,50 @@ const jshColor = (selector = "", color = init.textColor) => {
 //#endregion 2022-06-19: Main: CSS Colors
 
 //#region 2022-06-19: Main: CSS Backgrounds
-const jshBackground = (selector = "", color = init.textColor) => {
+const jshBackground = (selector = init.blank, color = init.textColor) => {
   // Element Global
   const element = querySelector(selector);
   element.style.backgroundColor = color;
 
-  const self = {};
+  const self = {
+    Color: (colorText = init.textColor) => {
+      element.style.color = colorText;
+      return self;
+    },
+    Opacity: (number = init.opacity) => {
+      element.style.opacity = number;
+      return self;
+    },
+    Image: (url = init.urlImage) => {
+      element.style.backgroundImage = `url('${url}')`;
+      return self;
+    },
+  };
+
+  return self;
+};
+
+// background-image core
+const backgroundImageCore = (element) => {
+  const self = {
+    
+  };
+
+  return self;
+};
+
+// background-repeat core
+const backgroundRepeatCore = (element) => {
+  const self = {
+
+  };
 
   return self;
 };
 //#endregion 2022-06-19: Main: CSS Backgrounds
 
 //#region 2022-06-18: Main: CSS Borders
-const jshBorder = (selector = "", direction = "") => {
+const jshBorder = (selector = init.blank, direction = "") => {
   // Element Global
   const element = querySelector(selector);
 
