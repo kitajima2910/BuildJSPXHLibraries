@@ -8,6 +8,7 @@ const init = {
   opacity: 1,
   urlImage: "",
   transparent: "transparent",
+  backgroundPosition: "center center",
 
   // Start: CSS Borders
   borderWidth: "1px",
@@ -74,7 +75,7 @@ const jshBackground = (selector = init.blank, color = init.textColor) => {
     },
     Image: (url = init.urlImage) => {
       element.style.backgroundImage = `url('${url}')`;
-      return self;
+      return backgroundRepeatCore(element);
     },
     ConicGradient: (
       params = {
@@ -108,16 +109,101 @@ const jshBackground = (selector = init.blank, color = init.textColor) => {
   return self;
 };
 
-// background-image core
-const backgroundImageCore = (element) => {
-  const self = {};
+// background-repeat core
+const backgroundRepeatCore = (element) => {
+  const self = {
+    Repeat: () => {
+      element.style.backgroundRepeat = "repeat";
+      return backgroundPositionCore(element);
+    },
+    RepeatX: () => {
+      element.style.backgroundRepeat = "repeat-x";
+      return backgroundPositionCore(element);
+    },
+    RepeatY: () => {
+      element.style.backgroundRepeat = "repeat-y";
+      return backgroundPositionCore(element);
+    },
+    NoRepeat: () => {
+      element.style.backgroundRepeat = "no-repeat";
+      return backgroundPositionCore(element);
+    },
+    Space: () => {
+      element.style.backgroundRepeat = "space";
+      return backgroundPositionCore(element);
+    },
+    Round: () => {
+      element.style.backgroundRepeat = "round";
+      return backgroundPositionCore(element);
+    },
+  };
 
   return self;
 };
 
-// background-repeat core
-const backgroundRepeatCore = (element) => {
-  const self = {};
+// background-size core
+const backgroundSizeCore = (element) => {
+  const self = {
+    SizeContain: () => {
+      element.style.backgroundSize = "contain";
+      return backgroundAttachmentCore(element);
+    },
+    SizeCover: () => {
+      element.style.backgroundSize = "cover";
+      return backgroundAttachmentCore(element);
+    },
+    SizeInitial: () => {
+      element.style.backgroundSize = "initial";
+      return backgroundAttachmentCore(element);
+    },
+  };
+
+  return self;
+};
+
+// background-position core
+const backgroundPositionCore = (element) => {
+  const self = {
+    Position: (position = init.backgroundPosition) => {
+      element.style.backgroundPosition = position;
+      return backgroundSizeCore(element);
+    },
+  };
+
+  return self;
+};
+
+// background-attachment core
+const backgroundAttachmentCore = (element) => {
+  const self = {
+    Attachment: () => {
+      backgroundSupportAttachmentCore(element).Initial();
+      return backgroundSupportAttachmentCore(element);
+    },
+  };
+
+  return self;
+};
+
+// background-attachment core but is support
+const backgroundSupportAttachmentCore = (element) => {
+  const self = {
+    Scroll: () => {
+      element.style.backgroundAttachment = "scroll";
+    },
+    Fixed: () => {
+      element.style.backgroundAttachment = "fixed";
+    },
+    Local: () => {
+      element.style.backgroundAttachment = "local";
+    },
+    Initial: () => {
+      element.style.backgroundAttachment = "initial";
+    },
+    Inherit: () => {
+      element.style.backgroundAttachment = "inherit";
+    },
+  };
 
   return self;
 };

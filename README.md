@@ -67,6 +67,19 @@ jshBackground("div").RadialGradient({
 
 ![jshBackgroundEX4](./assets/imgs/backgrounds/jshBackgroundEX4.PNG)
 
+```javascript
+// EX 5: usage background with image
+jshBackground("div")
+  .Image("./../../assets/imgs/flower.gif")
+  .NoRepeat()
+  .Position("center center")
+  .SizeContain()
+  .Attachment()
+  .Fixed();
+```
+
+![jshBackgroundEX5](./assets/imgs/backgrounds/jshBackgroundEX5.PNG)
+
 ##### jshBorder(selector)
 
 ```javascript

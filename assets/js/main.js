@@ -23,6 +23,13 @@
 //   color03: "green",
 // });
 
+// EX 5: usage background with image
+jshBackground("div")
+  .Image("./../../assets/imgs/flower.gif")
+  .NoRepeat()
+  .Position("center center").SizeContain()
+  .Attachment().Fixed();
+
 // jshColor(selector);
 // EX 1: colors
 // jshColor(".h1-0", "DodgerBlue").BackgroundColor("#ff6347");
