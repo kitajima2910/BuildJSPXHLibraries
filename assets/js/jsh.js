@@ -72,18 +72,36 @@ const jshBackground = (selector = init.blank, color = init.textColor) => {
       element.style.opacity = number;
       return self;
     },
-    ImageURL1: (url = init.urlImage) => {
+    Image: (url = init.urlImage) => {
       element.style.backgroundImage = `url('${url}')`;
       return self;
     },
-    ImageURL2: (
+    ConicGradient: (
       params = {
-        url1: init.urlImage,
-        url2: init.urlImage,
+        color01: "red",
+        color02: "yellow",
+        color03: "green",
       }
     ) => {
-      element.style.backgroundImage = `url('${params.url1}'), url('${params.url2}'),`;
-      return self;
+      element.style.backgroundImage = `conic-gradient(${params.color01}, ${params.color02}, ${params.color03})`;
+    },
+    LinearGradient: (
+      params = {
+        color01: "red",
+        color02: "yellow",
+        color03: "green",
+      }
+    ) => {
+      element.style.backgroundImage = `linear-gradient(${params.color01}, ${params.color02}, ${params.color03})`;
+    },
+    RadialGradient: (
+      params = {
+        color01: "red",
+        color02: "yellow",
+        color03: "green",
+      }
+    ) => {
+      element.style.backgroundImage = `radial-gradient(${params.color01}, ${params.color02}, ${params.color03})`;
     },
   };
 

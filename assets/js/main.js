@@ -1,9 +1,27 @@
 // jshBackground(selector);
 // EX 1: background-color, color, opacity
-jshBackground("div", "green").Color("#fff").Opacity(.3);
+// jshBackground("div", "green").Color("#fff").Opacity(.3);
 
-// EX 2: background-image
-// jshBackground("body").Image("./../../assets/imgs/JavaScriptCSSBackground.png");
+// EX 2: conic-gradient
+// jshBackground("div").ConicGradient({
+//   color01: "red",
+//   color02: "yellow",
+//   color03: "green",
+// });
+
+// EX 3: linear-gradient
+// jshBackground("div").LinearGradient({
+//   color01: "red",
+//   color02: "yellow",
+//   color03: "green",
+// });
+
+// EX 4: radial-gradient
+// jshBackground("div").RadialGradient({
+//   color01: "red",
+//   color02: "yellow",
+//   color03: "green",
+// });
 
 // jshColor(selector);
 // EX 1: colors

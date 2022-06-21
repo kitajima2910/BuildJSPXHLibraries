@@ -34,6 +34,39 @@ jshBackground("div", "green").Color("#fff").Opacity(0.3);
 
 ![jshBackgroundEX1](./assets/imgs/backgrounds/jshBackgroundEX1.PNG)
 
+```javascript
+// EX 2: conic-gradient
+jshBackground("div").ConicGradient({
+  color01: "red",
+  color02: "yellow",
+  color03: "green",
+});
+```
+
+![jshBackgroundEX2](./assets/imgs/backgrounds/jshBackgroundEX2.PNG)
+
+```javascript
+// EX 3: linear-gradient
+jshBackground("div").LinearGradient({
+  color01: "red",
+  color02: "yellow",
+  color03: "green",
+});
+```
+
+![jshBackgroundEX3](./assets/imgs/backgrounds/jshBackgroundEX3.PNG)
+
+```javascript
+// EX 4: radial-gradient
+jshBackground("div").RadialGradient({
+  color01: "red",
+  color02: "yellow",
+  color03: "green",
+});
+```
+
+![jshBackgroundEX4](./assets/imgs/backgrounds/jshBackgroundEX4.PNG)
+
 ##### jshBorder(selector)
 
 ```javascript
