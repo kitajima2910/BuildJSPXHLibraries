@@ -72,8 +72,17 @@ const jshBackground = (selector = init.blank, color = init.textColor) => {
       element.style.opacity = number;
       return self;
     },
-    Image: (url = init.urlImage) => {
+    ImageURL1: (url = init.urlImage) => {
       element.style.backgroundImage = `url('${url}')`;
+      return self;
+    },
+    ImageURL2: (
+      params = {
+        url1: init.urlImage,
+        url2: init.urlImage,
+      }
+    ) => {
+      element.style.backgroundImage = `url('${params.url1}'), url('${params.url2}'),`;
       return self;
     },
   };
@@ -83,18 +92,14 @@ const jshBackground = (selector = init.blank, color = init.textColor) => {
 
 // background-image core
 const backgroundImageCore = (element) => {
-  const self = {
-    
-  };
+  const self = {};
 
   return self;
 };
 
 // background-repeat core
 const backgroundRepeatCore = (element) => {
-  const self = {
-
-  };
+  const self = {};
 
   return self;
 };

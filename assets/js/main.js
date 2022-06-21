@@ -3,7 +3,7 @@
 jshBackground("div", "green").Color("#fff").Opacity(.3);
 
 // EX 2: background-image
-jshBackground("body").Image("./../../assets/imgs/JavaScriptCSSBackground.png");
+// jshBackground("body").Image("./../../assets/imgs/JavaScriptCSSBackground.png");
 
 // jshColor(selector);
 // EX 1: colors

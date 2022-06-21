@@ -9,7 +9,8 @@ Download files: jsh.js, cssh.css
 ## Functions
 
 1. jshColor(selector)
-2. jshBorder(selector)
+2. jshBackground(selector, color)
+3. jshBorder(selector)
 
 ##### jshColor(selector)
 
@@ -23,6 +24,15 @@ jshColor(".h1-4", "hsl(0, 40%, 50%)").backgroundColor("rgba(255, 99, 71, 0.5)");
 ```
 
 ![jshColorEX1](./assets/imgs/colors/jshColorEX1.PNG)
+
+##### jshBackground(selector, color)
+
+```javascript
+// EX 1: background-color, color, opacity
+jshBackground("div", "green").Color("#fff").Opacity(0.3);
+```
+
+![jshBackgroundEX1](./assets/imgs/backgrounds/jshBackgroundEX1.PNG)
 
 ##### jshBorder(selector)
 
